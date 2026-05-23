@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DecodeLabs – Free Programming Notes</title>
+  <link rel="stylesheet" href="/home/satish/Downloads/style(1).css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- Animated background grid -->
+  <div class="bg-grid"></div>
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+  <div class="bg-glow glow-3"></div>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <div class="logo-icon">&lt;/&gt;</div>
+        <div class="logo-text">
+          <span class="logo-main">DecodeLabs</span>
+          <span class="logo-sub">Learn · Code · Grow</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="#languages" class="nav-link">Languages</a>
+        <a href="#notes" class="nav-link">Notes</a>
+        <a href="#resources" class="nav-link">Resources</a>
+        <a href="#about" class="nav-link">About</a>
+      </div>
+      <div class="nav-right">
+        <div class="nav-badge">100% Free</div>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#languages" onclick="toggleMenu()">Languages</a>
+      <a href="#notes" onclick="toggleMenu()">Notes</a>
+      <a href="#resources" onclick="toggleMenu()">Resources</a>
+      <a href="#about" onclick="toggleMenu()">About</a>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        <span class="pulse-dot"></span>
+        Free · Open · No Login Required
+      </div>
+      <h1 class="hero-title">
+        Learn <span class="typed-wrapper"><span class="typed" id="typedText"></span><span class="cursor">|</span></span><br/>
+        <span class="hero-title-sub">from scratch. For free.</span>
+      </h1>
+      <p class="hero-desc">
+        DecodeLabs provides beautifully structured notes for every major programming and scripting language — HTML, CSS, JavaScript, Python, SQL, and more. No paywalls, no sign-ups. Just knowledge.
+      </p>
+      <div class="hero-cta">
+        <a href="#notes" class="btn-primary">
+          <span>Start Learning</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#languages" class="btn-secondary">Browse Languages</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="stat-value">15+</span>
+          <span class="stat-label">Languages</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="hero-stat">
+          <span class="stat-value">300+</span>
+          <span class="stat-label">Topics</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="hero-stat">
+          <span class="stat-value">Free</span>
+          <span class="stat-label">Forever</span>
+        </div>
+      </div>
+    </div>
+    <!-- Hero code preview -->
+    <div class="hero-code-preview">
+      <div class="code-window">
+        <div class="code-titlebar">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="code-filename">welcome.js</span>
+        </div>
+        <pre class="code-body"><span class="c-comment">// Welcome to DecodeLabs 🚀</span>
+<span class="c-kw">const</span> <span class="c-var">knowledge</span> = {
+  price<span class="c-op">:</span> <span class="c-str">"free"</span>,
+  access<span class="c-op">:</span> <span class="c-str">"unlimited"</span>,
+  languages<span class="c-op">:</span> [
+    <span class="c-str">"HTML"</span>, <span class="c-str">"CSS"</span>, <span class="c-str">"JavaScript"</span>,
+    <span class="c-str">"Python"</span>, <span class="c-str">"SQL"</span>, <span class="c-str">"..."</span>
+  ]
+};
+
+<span class="c-fn">console</span>.<span class="c-fn">log</span>(<span class="c-str">"Start learning today!"</span>);</pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SEARCH BAR ========== -->
+  <section class="search-section">
+    <div class="search-container">
+      <div class="search-box">
+        <svg class="search-icon-svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M13.5 13.5L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <input type="text" id="searchInput" placeholder="Search HTML, CSS, Python, functions, loops…" oninput="filterAll()"/>
+        <kbd class="search-kbd">Ctrl+K</kbd>
+      </div>
+      <div class="search-tags">
+        <button class="stag active" onclick="setTag(this,'all')">All</button>
+        <button class="stag" onclick="setTag(this,'beginner')">Beginner</button>
+        <button class="stag" onclick="setTag(this,'intermediate')">Intermediate</button>
+        <button class="stag" onclick="setTag(this,'advanced')">Advanced</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== LANGUAGES ========== -->
+  <section class="languages-section" id="languages">
+    <div class="section-header">
+      <div class="section-eyebrow">— Languages & Frameworks</div>
+      <h2 class="section-title">Pick your language.<br/>Start learning.</h2>
+    </div>
+    <div class="lang-grid" id="langGrid">
+
+      <div class="lang-card" data-lang="html" onclick="filterByLang('HTML')">
+        <div class="lang-icon html-icon">&lt;/&gt;</div>
+        <div class="lang-name">HTML</div>
+        <div class="lang-count">28 topics</div>
+        <div class="lang-bar"><div class="lang-fill" style="width:95%"></div></div>
+      </div>
+
+      <div class="lang-card" data-lang="css" onclick="filterByLang('CSS')">
+        <div class="lang-icon css-icon">#{ }</div>
+        <div class="lang-name">CSS</div>
+        <div class="lang-count">35 topics</div>
+        <div class="lang-bar"><div class="lang-fill" style="width:88%"></div></div>
+      </div>
+
+      <div class="lang-card" data-lang="javascript" onclick="filterByLang('JavaScript')">
+        <div class="lang-icon js-icon">JS</div>
+        <div class="lang-name">JavaScript</div>
+        <div class="lang-count">52 topics</div>
+        <div class="lang-bar"><div class="lang-fill" style="width:92%"></div></div>
+      </div>
+
+      <div class="lang-card" data-lang="python" onclick="filterByLang('Python')">
+        <div class="lang-icon py-icon">Py</div>
+        <div class="lang-name">Python</div>
+        <div class="lang-count">44 topics</div>
+        <div class="lang-bar"><div class="lang-fill" style="width:85%"></div></div>
+      </div>
+
+      <div class="lang-card" data-lang="sql" onclick="filterByLang('SQL')">
+        <div class="lang-icon sql-icon">SQL</div>
+        <div class="lang-name">SQL</div>
+        <div class="lang-count">30 topics</div>
+        <div class="lang-bar"><div class="lang-fill" style="width:75%"></div></div>
+      </div>
+
+      <div class="lang-card" data-lang="java" onclick="filterByLang('Java')">
+        <div class="lang-icon java-icon">☕</div>
+        <div class="lang-name">Java</div>
+        <div class="lang-count">40 topics</div>
+        <div class="lang-bar"><div class="lang-fill" style="width:78%"></div></div>
+      </div>
+
+      <div class="lang-card" data-lang="cpp" onclick="filterByLang('C++')">
+        <div class="lang-icon cpp-icon">C++</div>
+        <div class="lang-name">C++</div>
+        <div class="lang-count">36 topics</div>
+        <div class="lang-bar"><div class="lang-fill" style="width:70%"></div></div>
+      </div>
+
+      <div class="lang-card" data-lang="typescript" onclick="filterByLang('TypeScript')">
+        <div class="lang-icon ts-icon">TS</div>
+        <div class="lang-name">TypeScript</div>
+        <div class="lang-count">22 topics</div>
+        <div class="lang-bar"><div class="lang-fill" style="width:65%"></div></div>
+      </div>
+
+      <div class="lang-card" data-lang="react" onclick="filterByLang('React')">
+        <div class="lang-icon react-icon">⚛</div>
+        <div class="lang-name">React</div>
+        <div class="lang-count">25 topics</div>
+        <div class="lang-bar"><div class="lang-fill" style="width:72%"></div></div>
+      </div>
+
+      <div class="lang-card" data-lang="php" onclick="filterByLang('PHP')">
+        <div class="lang-icon php-icon">PHP</div>
+        <div class="lang-name">PHP</div>
+        <div class="lang-count">18 topics</div>
+        <div class="lang-bar"><div class="lang-fill" style="width:55%"></div></div>
+      </div>
+
+      <div class="lang-card" data-lang="bash" onclick="filterByLang('Bash')">
+        <div class="lang-icon bash-icon">$_</div>
+        <div class="lang-name">Bash/Shell</div>
+        <div class="lang-count">15 topics</div>
+        <div class="lang-bar"><div class="lang-fill" style="width:50%"></div></div>
+      </div>
+
+      <div class="lang-card" data-lang="git" onclick="filterByLang('Git')">
+        <div class="lang-icon git-icon">⎇</div>
+        <div class="lang-name">Git</div>
+        <div class="lang-count">12 topics</div>
+        <div class="lang-bar"><div class="lang-fill" style="width:60%"></div></div>
+      </div>
+
+    </div>
+    <div class="lang-reset-row">
+      <button class="btn-reset" onclick="resetFilter()">Show All Notes ↓</button>
+    </div>
+  </section>
+
+  <!-- ========== NOTES LIBRARY ========== -->
+  <section class="notes-section" id="notes">
+    <div class="section-header">
+      <div class="section-eyebrow">— Notes Library</div>
+      <h2 class="section-title">Structured. Clear. Free.</h2>
+      <p class="section-desc">Every note follows a consistent format: concept → syntax → example → use case. Just like W3Schools, but beautifully designed.</p>
+    </div>
+
+    <div class="notes-toolbar">
+      <span class="notes-count" id="notesCount">Showing all notes</span>
+      <div class="sort-group">
+        <label>Sort:</label>
+        <select id="sortSelect" onchange="sortNotes()">
+          <option value="default">Default</option>
+          <option value="az">A → Z</option>
+          <option value="level">By Level</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="notes-grid" id="notesGrid">
+
+      <!-- ===== HTML ===== -->
+      <article class="note-card" data-lang="HTML" data-level="beginner" data-title="HTML Introduction & Document Structure">
+        <div class="note-header">
+          <span class="note-lang html">HTML</span>
+          <span class="note-level beginner">Beginner</span>
+        </div>
+        <h3>HTML Introduction & Document Structure</h3>
+        <p>Learn what HTML is, how browsers interpret it, and how to write a proper boilerplate with DOCTYPE, head, and body.</p>
+        <div class="note-topics">
+          <span>DOCTYPE</span><span>head/body</span><span>meta tags</span>
+        </div>
+        <div class="note-footer">
+          <span class="note-pages">📄 8 pages</span>
+          <button class="note-btn" onclick="openNote('HTML Introduction & Document Structure','HTML','beginner')">Read Notes →</button>
+        </div>
+      </article>
+
+      <article class="note-card" data-lang="HTML" data-level="beginner" data-title="HTML Elements & Tags">
+        <div class="note-header">
+          <span class="note-lang html">HTML</span>
+          <span class="note-level beginner">Beginner</span>
+        </div>
+        <h3>HTML Elements & Tags</h3>
+        <p>Block vs inline elements, semantic tags (header, nav, main, section, footer), void elements, and proper nesting rules.</p>
+        <div class="note-topics">
+          <span>semantic HTML</span><span>block/inline</span><span>nesting</span>
+        </div>
+        <div class="note-footer">
+          <span class="note-pages">📄 10 pages</span>
+          <button class="note-btn" onclick="openNote('HTML Elements & Tags','HTML','beginner')">Read Notes →</button>
+        </div>
+      </article>
+
+      <article class="note-card" data-lang="HTML" data-level="beginner" data-title="HTML Forms & Input Types">
+        <div class="note-header">
+          <span class="note-lang html">HTML</span>
+          <span class="note-level beginner">Beginner</span>
+        </div>
+        <h3>HTML Forms & Input Types</h3>
+        <p>Complete guide to form elements — input, textarea, select, radio, checkbox — with attributes, validation, and accessibility.</p>
+        <div class="note-topics">
+          <span>form</span><span>input</span><span>validation</span>
+        </div>
+        <div class="note-footer">
+          <span class="note-pages">📄 12 pages</span>
+          <button class="note-btn" onclick="openNote('HTML Forms & Input Types','HTML','beginner')">Read Notes →</button>
+        </div>
+      </article>
+
+      <article class="note-card" data-lang="HTML" data-level="intermediate" data-title="HTML Tables & Media">
+        <div class="note-header">
+          <span class="note-lang html">HTML</span>
+          <span class="note-level intermediate">Intermediate</span>
+        </div>
+        <h3>HTML Tables & Media</h3>
+        <p>Tables with colspan/rowspan, embedding images, audio, video, iframes, and responsive media attributes.</p>
+        <div class="note-topics">
+          <span>table</span><span>video/audio</span><span>iframe</span>
+        </div>
+        <div class="note-footer">
+          <span class="note-pages">📄 9 pages</span>
+          <button class="note-btn" onclick="openNote('HTML Tables & Media','HTML','intermediate')">Read Notes →</button>
+        </div>
+      </article>
+
+      <!-- ===== CSS ===== -->
+      <article class="note-card" data-lang="CSS" data-level="beginner" data-title="CSS Selectors & Specificity">
+        <div class="note-header">
+          <span class="note-lang css">CSS</span>
+          <span class="note-level beginner">Beginner</span>
+        </div>
+        <h3>CSS Selectors & Specificity</h3>
+        <p>Element, class, ID, attribute, pseudo-class, pseudo-element selectors. How specificity is calculated and the cascade.</p>
+        <div class="note-topics">
+          <span>selectors</span><span>specificity</span><span>cascade</span>
+        </div>
+        <div class="note-footer">
+          <span class="note-pages">📄 11 pages</span>
+          <button class="note-btn" onclick="openNote('CSS Selectors & Specificity','CSS','beginner')">Read Notes →</button>
+        </div>
+      </article>
+
+      <article class="note-card" data-lang="CSS" data-level="beginner" data-title="CSS Box Model & Layout">
+        <div class="note-header">
+          <span class="note-lang css">CSS</span>
+          <span class="note-level beginner">Beginner</span>
+        </div>
+        <h3>CSS Box Model & Layout</h3>
+        <p>Understand margin, border, padding, content. block vs inline-block, display types, and the box-sizing property.</p>
+        <div class="note-topics">
+          <span>box model</span><span>display</span><span>box-sizing</span>
+        </div>
+        <div class="note-footer">
+          <span class="note-pages">📄 10 pages</span>
+          <button class="note-btn" onclick="openNote('CSS Box Model & Layout','CSS','beginner')">Read Notes →</button>
+        </div>
+      </article>
+
+      <article class="note-card" data-lang="CSS" data-level="intermediate" data-title="CSS Flexbox">
+        <div class="note-header">
+          <span class="note-lang css">CSS</span>
+          <span class="note-level intermediate">Intermediate</span>
+        </div>
+        <h3>CSS Flexbox</h3>
+        <p>Complete Flexbox reference — flex-direction, justify-content, align-items, flex-grow, flex-wrap, order, gap, and real layouts.</p>
+        <div class="note-topics">
+          <span>flexbox</span><span>align</span><span>justify</span>
+        </div>
+        <div class="note-footer">
+          <span class="note-pages">📄 14 pages</span>
+          <button class="note-btn" onclick="openNote('CSS Flexbox','CSS','intermediate')">Read Notes →</button>
+        </div>
+      </article>
+
+      <article class="note-card" data-lang="CSS" data-level="intermediate" data-title="CSS Grid Layout">
+        <div class="note-header">
+          <span class="note-lang css">CSS</span>
+          <span class="note-level intermediate">Intermediate</span>
+        </div>
+        <h3>CSS Grid Layout</h3>
+        <p>grid-template-columns/rows, grid-area, auto-fill, minmax(), fr units, named lines, and complex grid designs.</p>
+        <div class="note-topics">
+          <span>grid</span><span>fr units</span><span>grid-area</span>
+        </div>
+        <div class="note-footer">
+          <span class="note-pages">📄 16 pages</span>
+          <button class="note-btn" onclick="openNote('CSS Grid Layout','CSS','intermediate')">Read Notes →</button>
+        </div>
+      </article>
+
+      <article class="note-card" data-lang="CSS" data-level="advanced" data-title="CSS Animations & Transitions">
+        <div class="note-header">
+          <span class="note-lang css">CSS</span>
+          <span class="note-level advanced">Advanced</span>
+        </div>
+        <h3>CSS Animations & Transitions</h3>
+        <p>transition shorthand, @keyframes, animation-timing-function, transform (translate, rotate, scale, skew), and performance tips.</p>
+        <div class="note-topics">
+          <span>@keyframes</span><span>transition</span><span>transform</span>
+        </div>
+        <div class="note-footer">
+          <span class="note-pages">📄 13 pages</span>
+          <button class="note-btn" onclick="openNote('CSS Animations & Transitions','CSS','advanced')">Read Notes →</button>
+        </div>
+      </article>
+
+      <!-- ===== JAVASCRIPT ===== -->
+      <article class="note-card" data-lang="JavaScript" data-level="beginner" data-title="JavaScript Variables & Data Types">
+        <div class="note-header">
+          <span class="note-lang js">JavaScript</span>
+          <span class="note-level beginner">Beginner</span>
+        </div>
+        <h3>JavaScript Variables & Data Types</h3>
+        <p>var vs let vs const, primitive types (string, number, boolean, null, undefined, symbol), type coercion, and typeof.</p>
+        <div class="note-topics">
+          <span>let/const</span><span>data types</span><span>typeof</span>
+        </div>
+        <div class="note-footer">
+          <span class="note-pages">📄 10 pages</span>
+          <button class="note-btn" onclick="openNote('JavaScript Variables & Data Types','JavaScript','beginner')">Read Notes →</button>
+        </div>
+      </article>
+
+      <article class="note-card" data-lang="JavaScript" data-level="beginner" data-title="JavaScript Functions">
+        <div class="note-header">
+          <span class="note-lang js">JavaScript</span>
+          <span class="note-level beginner">Beginner</span>
+        </div>
+        <h3>JavaScript Functions</h3>
+        <p>Function declarations vs expressions, arrow functions, default parameters, rest/spread, closures, and IIFE.</p>
+        <div class="note-topics">
+          <span>arrow fn</span><span>closures</span><span>params</span>
+        </div>
+        <div class="note-footer">
+          <span class="note-pages">📄 14 pages</span>
+          <button class="note-btn" onclick="openNote('JavaScript Functions','JavaScript','beginner')">Read Notes →</button>
+        </div>
+      </article>
+
+      <article class="note-card" data-lang="JavaScript" data-level="intermediate" data-title="DOM Manipulation">
+        <div class="note-header">
+          <span class="note-lang js">JavaScript</span>
+          <span class="note-level intermediate">Intermediate</span>
+        </div>
+        <h3>DOM Manipulation</h3>
+        <p>Selecting elements (querySelector, getElementById), modifying content/style/attributes, creating/removing nodes, and event listeners.</p>
+        <div class="note-topics">
+          <span>querySelector</span><span>events</span><span>DOM tree</span>
+        </div>
+        <div class="note-footer">
+          <span class="note-pages">📄 18 pages</span>
+          <button class="note-btn" onclick="openNote('DOM Manipulation','JavaScript','intermediate')">Read Notes →</button>
+        </div>
+      </article>
+
+      <article class="note-card" data-lang="JavaScript" data-level="intermediate" data-title="Arrays & Array Methods">
+        <div class="note-header">
+          <span class="note-lang js">JavaScript</span>
+          <span class="note-level intermediate">Intermediate</span>
+        </div>
+        <h3>Arrays & Array Methods</h3>
+        <p>map, filter, reduce, forEach, find, some, every, flat, sort, splice, slice — all with practical examples.</p>
+        <div class="note-topics">
+          <span>map/filter</span><span>reduce</span><span>sort</span>
+        </div>
+        <div class="note-footer">
+          <span class="note-pages">📄 16 pages</span>
+          <button class="note-btn" onclick="openNote('Arrays & Array Methods','JavaScript','intermediate')">Read Notes →</button>
+        </div>
+      </article>
+
+      <article class="note-card" data-lang="JavaScript" data-level="advanced" data-title="Promises & Async/Await">
+        <div class="note-header">
+          <span class="note-lang js">JavaScript</span>
+          <span class="note-level advanced">Advanced</span>
+        </div>
+        <h3>Promises & Async/Await</h3>
+        <p>Callbacks to Promises to async/await. Promise.all, Promise.race, error handling with try/catch, and fetch API.</p>
+        <div class="note-topics">
+          <span>async/await</span><span>fetch</span><span>Promise.all</span>
+        </div>
+        <div class="note-footer">
+          <span class="note-pages">📄 20 pages</span>
+          <button class="note-btn" onclick="openNote('Promises & Async/Await','JavaScript','advanced')">Read Notes →</button>
+        </div>
+      </article>
+
+      <article class="note-card" data-lang="JavaScript" data-level="advanced" data-title="ES6+ Modern JavaScript">
+        <div class="note-header">
+          <span class="note-lang js">JavaScript</span>
+          <span class="note-level advanced">Advanced</span>
+        </div>
+        <h3>ES6+ Modern JavaScript</h3>
+        <p>Destructuring, template literals, optional chaining, nullish coalescing, modules (import/export), WeakMap, Symbol.</p>
+        <div class="note-topics">
+          <span>destructuring</span><span>modules</span><span>optional chaining</span>
+        </div>
+        <div class="note-footer">
+          <span class="note-pages">📄 22 pages</span>
+          <button class="note-btn" onclick="openNote('ES6+ Modern JavaScript','JavaScript','advanced')">Read Notes →</button>
+        </div>
+      </article>
+
+      <!-- ===== PYTHON ===== -->
+      <article class="note-card" data-lang="Python" data-level="beginner" data-title="Python Basics & Syntax">
+        <div class="note-header">
+          <span class="note-lang py">Python</span>
+          <span class="note-level beginner">Beginner</span>
+        </div>
+        <h3>Python Basics & Syntax</h3>
+        <p>Indentation rules, variables, input/output, string formatting (f-strings), comments, and Python's philosophy.</p>
+        <div class="note-topics">
+          <span>syntax</span><span>f-strings</span><span>variables</span>
+        </div>
+        <div class="note-footer">
+          <span class="note-pages">📄 9 pages</span>
+          <button class="note-btn" onclick="openNote('Python Basics & Syntax','Python','beginner')">Read Notes →</button>
+        </div>
+      </article>
+
+      <article class="note-card" data-lang="Python" data-level="beginner" data-title="Python Lists, Tuples & Dicts">
+        <div class="note-header">
+          <span class="note-lang py">Python</span>
+          <span class="note-level beginner">Beginner</span>
+        </div>
+        <h3>Python Lists, Tuples & Dicts</h3>
+        <p>Creating and manipulating Python's core collections — list comprehension, dict methods, tuple unpacking, and sets.</p>
+        <div class="note-topics">
+          <span>list comp</span><span>dict</span><span>sets</span>
+        </div>
+        <div class="note-footer">
+          <span class="note-pages">📄 13 pages</span>
+          <button class="note-btn" onclick="openNote('Python Lists, Tuples & Dicts','Python','beginner')">Read Notes →</button>
+        </div>
+      </article>
+
+      <article class="note-card" data-lang="Python" data-level="intermediate" data-title="Python OOP">
+        <div class="note-header">
+          <span class="note-lang py">Python</span>
+          <span class="note-level intermediate">Intermediate</span>
+        </div>
+        <h3>Python OOP</h3>
+        <p>Classes, __init__, inheritance, super(), @classmethod, @staticmethod, dunder methods, and encapsulation.</p>
+        <div class="note-topics">
+          <span>classes</span><span>inheritance</span><span>dunder</span>
+        </div>
+        <div class="note-footer">
+          <span class="note-pages">📄 17 pages</span>
+          <button class="note-btn" onclick="openNote('Python OOP','Python','intermediate')">Read Notes →</button>
+        </div>
+      </article>
+
+      <article class="note-card" data-lang="Python" data-level="advanced" data-title="Python Decorators & Generators">
+        <div class="note-header">
+          <span class="note-lang py">Python</span>
+          <span class="note-level advanced">Advanced</span>
+        </div>
+        <h3>Python Decorators & Generators</h3>
+        <p>First-class functions, writing decorators, functools.wraps, yield, generator expressions, and lazy evaluation.</p>
+        <div class="note-topics">
+          <span>decorators</span><span>yield</span><span>generators</span>
+        </div>
+        <div class="note-footer">
+          <span class="note-pages">📄 15 pages</span>
+          <button class="note-btn" onclick="openNote('Python Decorators & Generators','Python','advanced')">Read Notes →</button>
+        </div>
+      </article>
+
+      <!-- ===== SQL ===== -->
+      <article class="note-card" data-lang="SQL" data-level="beginner" data-title="SQL SELECT & WHERE">
+        <div class="note-header">
+          <span class="note-lang sql">SQL</span>
+          <span class="note-level beginner">Beginner</span>
+        </div>
+        <h3>SQL SELECT & WHERE</h3>
+        <p>Querying databases with SELECT, filtering with WHERE, AND/OR/NOT, BETWEEN, LIKE, IN, and NULL handling.</p>
+        <div class="note-topics">
+          <span>SELECT</span><span>WHERE</span><span>LIKE</span>
+        </div>
+        <div class="note-footer">
+          <span class="note-pages">📄 10 pages</span>
+          <button class="note-btn" onclick="openNote('SQL SELECT & WHERE','SQL','beginner')">Read Notes →</button>
+        </div>
+      </article>
+
+      <article class="note-card" data-lang="SQL" data-level="intermediate" data-title="SQL Joins Explained">
+        <div class="note-header">
+          <span class="note-lang sql">SQL</span>
+          <span class="note-level intermediate">Intermediate</span>
+        </div>
+        <h3>SQL Joins Explained</h3>
+        <p>INNER, LEFT, RIGHT, FULL OUTER, CROSS JOIN — with Venn diagrams explained in text, practical examples, and ON conditions.</p>
+        <div class="note-topics">
+          <span>INNER JOIN</span><span>LEFT JOIN</span><span>ON</span>
+        </div>
+        <div class="note-footer">
+          <span class="note-pages">📄 14 pages</span>
+          <button class="note-btn" onclick="openNote('SQL Joins Explained','SQL','intermediate')">Read Notes →</button>
+        </div>
+      </article>
+
+      <!-- ===== TypeScript ===== -->
+      <article class="note-card" data-lang="TypeScript" data-level="intermediate" data-title="TypeScript Types & Interfaces">
+        <div class="note-header">
+          <span class="note-lang ts">TypeScript</span>
+          <span class="note-level intermediate">Intermediate</span>
+        </div>
+        <h3>TypeScript Types & Interfaces</h3>
+        <p>Primitive types, type aliases, interfaces, optional properties, readonly, union types, intersection types, and generics.</p>
+        <div class="note-topics">
+          <span>interfaces</span><span>generics</span><span>union types</span>
+        </div>
+        <div class="note-footer">
+          <span class="note-pages">📄 16 pages</span>
+          <button class="note-btn" onclick="openNote('TypeScript Types & Interfaces','TypeScript','intermediate')">Read Notes →</button>
+        </div>
+      </article>
+
+      <!-- ===== React ===== -->
+      <article class="note-card" data-lang="React" data-level="intermediate" data-title="React Hooks (useState & useEffect)">
+        <div class="note-header">
+          <span class="note-lang react">React</span>
+          <span class="note-level intermediate">Intermediate</span>
+        </div>
+        <h3>React Hooks (useState & useEffect)</h3>
+        <p>Managing state and side effects in functional components — dependencies, cleanup, custom hooks, and common pitfalls.</p>
+        <div class="note-topics">
+          <span>useState</span><span>useEffect</span><span>custom hooks</span>
+        </div>
+        <div class="note-footer">
+          <span class="note-pages">📄 18 pages</span>
+          <button class="note-btn" onclick="openNote('React Hooks (useState & useEffect)','React','intermediate')">Read Notes →</button>
+        </div>
+      </article>
+
+      <!-- ===== Java ===== -->
+      <article class="note-card" data-lang="Java" data-level="beginner" data-title="Java OOP Fundamentals">
+        <div class="note-header">
+          <span class="note-lang java">Java</span>
+          <span class="note-level beginner">Beginner</span>
+        </div>
+        <h3>Java OOP Fundamentals</h3>
+        <p>Classes, objects, constructors, access modifiers, inheritance, polymorphism, abstraction, and encapsulation in Java.</p>
+        <div class="note-topics">
+          <span>classes</span><span>inheritance</span><span>polymorphism</span>
+        </div>
+        <div class="note-footer">
+          <span class="note-pages">📄 20 pages</span>
+          <button class="note-btn" onclick="openNote('Java OOP Fundamentals','Java','beginner')">Read Notes →</button>
+        </div>
+      </article>
+
+      <!-- ===== C++ ===== -->
+      <article class="note-card" data-lang="C++" data-level="intermediate" data-title="C++ Pointers & Memory">
+        <div class="note-header">
+          <span class="note-lang cpp">C++</span>
+          <span class="note-level intermediate">Intermediate</span>
+        </div>
+        <h3>C++ Pointers & Memory Management</h3>
+        <p>Pointers, references, dynamic memory (new/delete), stack vs heap, memory leaks, and smart pointers (unique_ptr).</p>
+        <div class="note-topics">
+          <span>pointers</span><span>new/delete</span><span>smart ptr</span>
+        </div>
+        <div class="note-footer">
+          <span class="note-pages">📄 19 pages</span>
+          <button class="note-btn" onclick="openNote('C++ Pointers & Memory Management','C++','intermediate')">Read Notes →</button>
+        </div>
+      </article>
+
+      <!-- ===== PHP ===== -->
+      <article class="note-card" data-lang="PHP" data-level="beginner" data-title="PHP Basics & Syntax">
+        <div class="note-header">
+          <span class="note-lang php">PHP</span>
+          <span class="note-level beginner">Beginner</span>
+        </div>
+        <h3>PHP Basics & Syntax</h3>
+        <p>Variables, data types, echo/print, strings, arrays, loops, functions, and GET/POST superglobals in PHP.</p>
+        <div class="note-topics">
+          <span>variables</span><span>arrays</span><span>GET/POST</span>
+        </div>
+        <div class="note-footer">
+          <span class="note-pages">📄 12 pages</span>
+          <button class="note-btn" onclick="openNote('PHP Basics & Syntax','PHP','beginner')">Read Notes →</button>
+        </div>
+      </article>
+
+      <!-- ===== Bash ===== -->
+      <article class="note-card" data-lang="Bash" data-level="beginner" data-title="Bash Scripting Essentials">
+        <div class="note-header">
+          <span class="note-lang bash">Bash</span>
+          <span class="note-level beginner">Beginner</span>
+        </div>
+        <h3>Bash Scripting Essentials</h3>
+        <p>Writing shell scripts, variables, conditionals, loops, functions, file I/O, piping, and common shell commands.</p>
+        <div class="note-topics">
+          <span>scripts</span><span>piping</span><span>conditionals</span>
+        </div>
+        <div class="note-footer">
+          <span class="note-pages">📄 11 pages</span>
+          <button class="note-btn" onclick="openNote('Bash Scripting Essentials','Bash','beginner')">Read Notes →</button>
+        </div>
+      </article>
+
+      <!-- ===== Git ===== -->
+      <article class="note-card" data-lang="Git" data-level="beginner" data-title="Git Fundamentals">
+        <div class="note-header">
+          <span class="note-lang git">Git</span>
+          <span class="note-level beginner">Beginner</span>
+        </div>
+        <h3>Git Fundamentals</h3>
+        <p>init, clone, add, commit, push, pull, branch, merge, rebase, stash — complete beginner-to-intermediate Git reference.</p>
+        <div class="note-topics">
+          <span>commit</span><span>branching</span><span>merge</span>
+        </div>
+        <div class="note-footer">
+          <span class="note-pages">📄 13 pages</span>
+          <button class="note-btn" onclick="openNote('Git Fundamentals','Git','beginner')">Read Notes →</button>
+        </div>
+      </article>
+
+    </div>
+
+    <div id="noResults" class="no-results" style="display:none;">
+      <div class="no-results-icon">¯\_(ツ)_/¯</div>
+      <h3>No notes found</h3>
+      <p>Try a different keyword or <button onclick="resetFilter()" class="inline-reset">reset filters</button></p>
+    </div>
+  </section>
+
+  <!-- ========== RESOURCES ========== -->
+  <section class="resources-section" id="resources">
+    <div class="section-header">
+      <div class="section-eyebrow">— Quick Reference</div>
+      <h2 class="section-title">Handy cheat sheets.</h2>
+    </div>
+    <div class="resources-grid">
+      <div class="resource-card">
+        <div class="resource-icon">📋</div>
+        <h3>HTML Cheat Sheet</h3>
+        <p>All tags, attributes, and semantic elements on one page.</p>
+        <span class="resource-free">Free Download</span>
+      </div>
+      <div class="resource-card">
+        <div class="resource-icon">🎨</div>
+        <h3>CSS Properties A–Z</h3>
+        <p>Every CSS property with accepted values and browser support.</p>
+        <span class="resource-free">Free Download</span>
+      </div>
+      <div class="resource-card">
+        <div class="resource-icon">⚡</div>
+        <h3>JS Methods Reference</h3>
+        <p>Array, String, Object, and Math methods with examples.</p>
+        <span class="resource-free">Free Download</span>
+      </div>
+      <div class="resource-card">
+        <div class="resource-icon">🐍</div>
+        <h3>Python Quick Ref</h3>
+        <p>Built-in functions, list/dict methods, and common patterns.</p>
+        <span class="resource-free">Free Download</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section class="about-section" id="about">
+    <div class="about-inner">
+      <div class="about-text">
+        <div class="section-eyebrow">— About DecodeLabs</div>
+        <h2>Built for learners.<br/>By learners.</h2>
+        <p>DecodeLabs started with a simple belief: quality programming notes should never sit behind a paywall. Every note is carefully written to explain concepts clearly — with syntax, examples, and use-cases — just like a great textbook, but free.</p>
+        <p>Whether you're a student, a bootcamp attendee, or a self-taught developer — these notes are for you.</p>
+        <div class="about-tags">
+          <span>No ads</span><span>No login</span><span>No paywalls</span><span>Open forever</span>
+        </div>
+      </div>
+      <div class="about-stats-card">
+        <div class="as-row">
+          <div class="as-item"><div class="as-num">15+</div><div class="as-lbl">Languages</div></div>
+          <div class="as-item"><div class="as-num">300+</div><div class="as-lbl">Topics</div></div>
+        </div>
+        <div class="as-row">
+          <div class="as-item"><div class="as-num">∞</div><div class="as-lbl">Access</div></div>
+          <div class="as-item"><div class="as-num">₹0</div><div class="as-lbl">Cost</div></div>
+        </div>
+        <div class="as-quote">"Code is poetry. Notes help you read it."</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo-icon">&lt;/&gt;</div>
+        <div>
+          <div class="logo-main">DecodeLabs</div>
+          <div class="footer-tagline">Free programming notes for everyone.</div>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <div class="fc-title">Languages</div>
+          <a href="#" onclick="filterByLang('HTML')">HTML</a>
+          <a href="#" onclick="filterByLang('CSS')">CSS</a>
+          <a href="#" onclick="filterByLang('JavaScript')">JavaScript</a>
+          <a href="#" onclick="filterByLang('Python')">Python</a>
+          <a href="#" onclick="filterByLang('SQL')">SQL</a>
+        </div>
+        <div class="footer-col">
+          <div class="fc-title">More</div>
+          <a href="#" onclick="filterByLang('Java')">Java</a>
+          <a href="#" onclick="filterByLang('C++')">C++</a>
+          <a href="#" onclick="filterByLang('TypeScript')">TypeScript</a>
+          <a href="#" onclick="filterByLang('React')">React</a>
+          <a href="#" onclick="filterByLang('Git')">Git</a>
+        </div>
+        <div class="footer-col">
+          <div class="fc-title">Site</div>
+          <a href="#notes">All Notes</a>
+          <a href="#resources">Cheat Sheets</a>
+          <a href="#about">About</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 DecodeLabs · All notes are free to use · Made with ♥ for students</span>
+    </div>
+  </footer>
+
+  <!-- ========== NOTE MODAL ========== -->
+  <div class="modal-overlay" id="modal" onclick="handleOverlayClick(event)">
+    <div class="modal-box" id="modalBox">
+      <button class="modal-close-btn" onclick="closeModal()">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <path d="M2 2L16 16M16 2L2 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <div class="modal-head">
+        <span class="modal-lang-badge" id="modalLangBadge"></span>
+        <span class="modal-level-badge" id="modalLevelBadge"></span>
+      </div>
+      <h2 class="modal-title" id="modalTitle"></h2>
+      <div class="modal-toc" id="modalToc"></div>
+      <div class="modal-content" id="modalContent"></div>
+      <div class="modal-bottom">
+        <span class="modal-free-tag">✓ Free · No login required</span>
+        <button onclick="window.print()" class="modal-print-btn">🖨 Print / Save PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  // ========== TYPED ANIMATION ==========
+  const words = ['HTML','CSS','JavaScript','Python','SQL','React','Java','TypeScript'];
+  let wi = 0, ci = 0, deleting = false;
+  function typeLoop() {
+    const el = document.getElementById('typedText');
+    const word = words[wi];
+    if (!deleting) {
+      el.textContent = word.slice(0, ++ci);
+      if (ci === word.length) { deleting = true; setTimeout(typeLoop, 1500); return; }
+    } else {
+      el.textContent = word.slice(0, --ci);
+      if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; }
+    }
+    setTimeout(typeLoop, deleting ? 60 : 100);
+  }
+  typeLoop();
+
+  // ========== NAVBAR SCROLL ==========
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // ========== MOBILE MENU ==========
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('active');
+  }
+
+  // ========== FILTER STATE ==========
+  let activeTag = 'all';
+  let activeLang = null;
+
+  function filterAll() {
+    const q = document.getElementById('searchInput').value.toLowerCase().trim();
+    const cards = document.querySelectorAll('.note-card');
+    let count = 0;
+    cards.forEach(card => {
+      const title = card.dataset.title.toLowerCase();
+      const lang  = card.dataset.lang.toLowerCase();
+      const level = card.dataset.level.toLowerCase();
+      const text  = card.querySelector('p').textContent.toLowerCase();
+      const topicEls = card.querySelectorAll('.note-topics span');
+      const topics = [...topicEls].map(t => t.textContent.toLowerCase()).join(' ');
+
+      const matchQuery = !q || title.includes(q) || lang.includes(q) || text.includes(q) || topics.includes(q);
+      const matchTag   = activeTag === 'all' || level === activeTag;
+      const matchLang  = !activeLang || card.dataset.lang === activeLang;
+      const show = matchQuery && matchTag && matchLang;
+      card.style.display = show ? '' : 'none';
+      if (show) count++;
+    });
+    document.getElementById('noResults').style.display = count === 0 ? 'flex' : 'none';
+    document.getElementById('notesCount').textContent =
+      count === document.querySelectorAll('.note-card').length
+        ? 'Showing all notes'
+        : `${count} note${count !== 1 ? 's' : ''} found`;
+  }
+
+  function setTag(btn, tag) {
+    document.querySelectorAll('.stag').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeTag = tag;
+    filterAll();
+  }
+
+  function filterByLang(lang) {
+    activeLang = lang;
+    document.querySelectorAll('.lang-card').forEach(c => {
+      c.classList.toggle('active', c.dataset.lang === lang.toLowerCase());
+    });
+    document.getElementById('searchInput').value = '';
+    filterAll();
+    document.getElementById('notes').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function resetFilter() {
+    activeLang = null;
+    activeTag = 'all';
+    document.querySelectorAll('.stag').forEach((b, i) => b.classList.toggle('active', i === 0));
+    document.querySelectorAll('.lang-card').forEach(c => c.classList.remove('active'));
+    document.getElementById('searchInput').value = '';
+    filterAll();
+    document.getElementById('notes').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function sortNotes() {
+    const val = document.getElementById('sortSelect').value;
+    const grid = document.getElementById('notesGrid');
+    const cards = [...grid.querySelectorAll('.note-card')];
+    cards.sort((a, b) => {
+      if (val === 'az') return a.dataset.title.localeCompare(b.dataset.title);
+      if (val === 'level') {
+        const order = { beginner: 1, intermediate: 2, advanced: 3 };
+        return order[a.dataset.level] - order[b.dataset.level];
+      }
+      return 0;
+    });
+    cards.forEach(c => grid.appendChild(c));
+  }
+
+  // ========== INTERSECTION OBSERVER (card reveal) ==========
+  const io = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 50);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.note-card, .lang-card, .resource-card').forEach(el => io.observe(el));
+
+  // ========== NOTE CONTENT DATA ==========
+  const noteData = {
+    'HTML Introduction & Document Structure': {
+      toc: ['What is HTML?', 'Basic Structure', 'DOCTYPE', 'Head Elements', 'Meta Tags'],
+      content: `
+        <h4>What is HTML?</h4>
+        <p>HTML (HyperText Markup Language) is the standard language for creating web pages. It describes the <em>structure</em> of a web page using elements represented by tags.</p>
+        <div class="code-block"><pre><span class="c-comment">&lt;!-- Every HTML file starts with this --&gt;</span>
+<span class="c-kw">&lt;!DOCTYPE html&gt;</span>
+<span class="c-kw">&lt;html</span> <span class="c-var">lang</span>=<span class="c-str">"en"</span><span class="c-kw">&gt;</span>
+  <span class="c-kw">&lt;head&gt;</span>
+    <span class="c-kw">&lt;meta</span> <span class="c-var">charset</span>=<span class="c-str">"UTF-8"</span><span class="c-kw">/&gt;</span>
+    <span class="c-kw">&lt;title&gt;</span>My Page<span class="c-kw">&lt;/title&gt;</span>
+  <span class="c-kw">&lt;/head&gt;</span>
+  <span class="c-kw">&lt;body&gt;</span>
+    <span class="c-kw">&lt;h1&gt;</span>Hello, World!<span class="c-kw">&lt;/h1&gt;</span>
+  <span class="c-kw">&lt;/body&gt;</span>
+<span class="c-kw">&lt;/html&gt;</span></pre></div>
+        <h4>Key Rules</h4>
+        <ul>
+          <li><code>&lt;!DOCTYPE html&gt;</code> — tells the browser this is HTML5</li>
+          <li><code>&lt;html lang="en"&gt;</code> — root element; <code>lang</code> helps accessibility & SEO</li>
+          <li><code>&lt;head&gt;</code> — contains metadata, not visible on page</li>
+          <li><code>&lt;body&gt;</code> — all visible content goes here</li>
+        </ul>
+        <h4>Important Meta Tags</h4>
+        <div class="code-block"><pre><span class="c-kw">&lt;meta</span> <span class="c-var">charset</span>=<span class="c-str">"UTF-8"</span><span class="c-kw">/&gt;</span>
+<span class="c-kw">&lt;meta</span> <span class="c-var">name</span>=<span class="c-str">"viewport"</span> <span class="c-var">content</span>=<span class="c-str">"width=device-width, initial-scale=1.0"</span><span class="c-kw">/&gt;</span>
+<span class="c-kw">&lt;meta</span> <span class="c-var">name</span>=<span class="c-str">"description"</span> <span class="c-var">content</span>=<span class="c-str">"Page description"</span><span class="c-kw">/&gt;</span></pre></div>
+      `
+    },
+    'CSS Flexbox': {
+      toc: ['Flex Container', 'Flex Direction', 'Justify Content', 'Align Items', 'Flex Wrap', 'Flex Items'],
+      content: `
+        <h4>Creating a Flex Container</h4>
+        <p>Apply <code>display: flex</code> to the parent. All direct children become flex items automatically.</p>
+        <div class="code-block"><pre><span class="c-var">.container</span> {
+  <span class="c-kw">display</span>: <span class="c-str">flex</span>;
+  <span class="c-kw">gap</span>: <span class="c-str">1rem</span>;
+}</pre></div>
+        <h4>Main Axis — justify-content</h4>
+        <div class="code-block"><pre><span class="c-fn">flex-start</span>   <span class="c-comment">/* default — items at start */</span>
+<span class="c-fn">flex-end</span>     <span class="c-comment">/* items at end */</span>
+<span class="c-fn">center</span>       <span class="c-comment">/* items centered */</span>
+<span class="c-fn">space-between</span> <span class="c-comment">/* equal space between */</span>
+<span class="c-fn">space-around</span> <span class="c-comment">/* equal space around */</span>
+<span class="c-fn">space-evenly</span> <span class="c-comment">/* perfectly equal gaps */</span></pre></div>
+        <h4>Cross Axis — align-items</h4>
+        <div class="code-block"><pre><span class="c-fn">stretch</span>      <span class="c-comment">/* default — fill container */</span>
+<span class="c-fn">flex-start</span>   <span class="c-comment">/* align to top */</span>
+<span class="c-fn">center</span>       <span class="c-comment">/* vertically centered */</span>
+<span class="c-fn">flex-end</span>     <span class="c-comment">/* align to bottom */</span>
+<span class="c-fn">baseline</span>     <span class="c-comment">/* text baselines align */</span></pre></div>
+        <h4>Flex Items</h4>
+        <div class="code-block"><pre><span class="c-var">.item</span> {
+  <span class="c-kw">flex-grow</span>:   <span class="c-str">1</span>;   <span class="c-comment">/* take available space */</span>
+  <span class="c-kw">flex-shrink</span>: <span class="c-str">0</span>;   <span class="c-comment">/* don't shrink */</span>
+  <span class="c-kw">flex-basis</span>:  <span class="c-str">200px</span>; <span class="c-comment">/* base size */</span>
+  <span class="c-comment">/* shorthand: */</span>
+  <span class="c-kw">flex</span>: <span class="c-str">1 0 200px</span>;
+}</pre></div>
+      `
+    },
+    'JavaScript Variables & Data Types': {
+      toc: ['var vs let vs const', 'Primitive Types', 'typeof Operator', 'Type Coercion'],
+      content: `
+        <h4>var vs let vs const</h4>
+        <div class="code-block"><pre><span class="c-kw">var</span>   <span class="c-comment">// function-scoped, hoisted, avoid in modern JS</span>
+<span class="c-kw">let</span>   <span class="c-comment">// block-scoped, can be reassigned</span>
+<span class="c-kw">const</span> <span class="c-comment">// block-scoped, cannot be reassigned</span>
+
+<span class="c-kw">let</span> <span class="c-var">name</span> = <span class="c-str">"Alice"</span>;
+<span class="c-kw">const</span> <span class="c-var">PI</span> = <span class="c-str">3.14159</span>;</pre></div>
+        <h4>Primitive Types</h4>
+        <div class="code-block"><pre><span class="c-kw">typeof</span> <span class="c-str">"hello"</span>     <span class="c-comment">// "string"</span>
+<span class="c-kw">typeof</span> <span class="c-str">42</span>         <span class="c-comment">// "number"</span>
+<span class="c-kw">typeof</span> <span class="c-str">true</span>       <span class="c-comment">// "boolean"</span>
+<span class="c-kw">typeof</span> <span class="c-str">undefined</span>  <span class="c-comment">// "undefined"</span>
+<span class="c-kw">typeof</span> <span class="c-str">null</span>       <span class="c-comment">// "object" ← famous JS quirk</span>
+<span class="c-kw">typeof</span> <span class="c-str">Symbol()</span>   <span class="c-comment">// "symbol"</span>
+<span class="c-kw">typeof</span> <span class="c-str">42n</span>        <span class="c-comment">// "bigint"</span></pre></div>
+        <h4>Type Coercion Gotchas</h4>
+        <div class="code-block"><pre><span class="c-str">"5"</span> + <span class="c-str">3</span>    <span class="c-comment">// "53"  (string concat)</span>
+<span class="c-str">"5"</span> - <span class="c-str">3</span>    <span class="c-comment">// 2    (numeric)</span>
+<span class="c-str">!!""</span>       <span class="c-comment">// false (falsy)</span>
+<span class="c-str">!!"hello"</span>  <span class="c-comment">// true  (truthy)</span>
+<span class="c-comment">// Use === (strict equality), never ==</span>
+<span class="c-str">0</span> == <span class="c-str">false</span>  <span class="c-comment">// true  ← dangerous</span>
+<span class="c-str">0</span> === <span class="c-str">false</span> <span class="c-comment">// false ← correct</span></pre></div>
+      `
+    },
+    'Python Basics & Syntax': {
+      toc: ['Indentation', 'Variables', 'Print & Input', 'F-Strings', 'Comments'],
+      content: `
+        <h4>Python Indentation</h4>
+        <p>Python uses indentation (4 spaces) instead of curly braces. This is not optional — it's part of the syntax.</p>
+        <div class="code-block"><pre>
+        
+</pre></div>
+        <h4>Variables & Types</h4>
+        <div class="code-block"><pre><span class="c-var">name</span>  = <span class="c-str">"Alice"</span>      <span class="c-comment"># str</span>
+<span class="c-var">age</span>   = <span class="c-str">25</span>           <span class="c-comment"># int</span>
+<span class="c-var">score</span> = <span class="c-str">9.8</span>          <span class="c-comment"># float</span>
+<span class="c-var">active</span> = <span class="c-str">True</span>        <span class="c-comment"># bool</span>
+
+<span class="c-fn">print</span>(<span class="c-fn">type</span>(<span class="c-var">name</span>))  <span class="c-comment"># &lt;class 'str'&gt;</span></pre></div>
+        <h4>F-Strings (Modern Way)</h4>
+        <div class="code-block"><pre><span class="c-var">name</span> = <span class="c-str">"Alice"</span>
+<span class="c-var">age</span>  = <span class="c-str">25</span>
+<span class="c-fn">print</span>(<span class="c-str">f"Name: {name}, Age: {age}"</span>)
+<span class="c-fn">print</span>(<span class="c-str">f"Next year: {age + 1}"</span>)  <span class="c-comment"># expressions work!</span></pre></div>
+      `
+    },
+    'SQL SELECT & WHERE': {
+      toc: ['Basic SELECT', 'WHERE Clause', 'Operators', 'ORDER BY', 'LIMIT'],
+      content: `
+        <h4>Basic SELECT</h4>
+        <div class="code-block"><pre><span class="c-kw">SELECT</span> * <span class="c-kw">FROM</span> users;
+<span class="c-kw">SELECT</span> name, email <span class="c-kw">FROM</span> users;
+<span class="c-kw">SELECT DISTINCT</span> city <span class="c-kw">FROM</span> customers;</pre></div>
+        <h4>WHERE Clause</h4>
+        <div class="code-block"><pre><span class="c-kw">SELECT</span> * <span class="c-kw">FROM</span> users
+  <span class="c-kw">WHERE</span> age > <span class="c-str">18</span>;
+
+<span class="c-kw">SELECT</span> * <span class="c-kw">FROM</span> users
+  <span class="c-kw">WHERE</span> age <span class="c-kw">BETWEEN</span> <span class="c-str">18</span> <span class="c-kw">AND</span> <span class="c-str">30</span>;
+
+<span class="c-kw">SELECT</span> * <span class="c-kw">FROM</span> users
+  <span class="c-kw">WHERE</span> name <span class="c-kw">LIKE</span> <span class="c-str">'A%'</span>; <span class="c-comment">-- starts with A</span>
+
+<span class="c-kw">SELECT</span> * <span class="c-kw">FROM</span> users
+  <span class="c-kw">WHERE</span> city <span class="c-kw">IN</span> (<span class="c-str">'Delhi'</span>, <span class="c-str">'Mumbai'</span>);</pre></div>
+        <h4>ORDER BY & LIMIT</h4>
+        <div class="code-block"><pre><span class="c-kw">SELECT</span> name, score <span class="c-kw">FROM</span> results
+  <span class="c-kw">ORDER BY</span> score <span class="c-kw">DESC</span>
+  <span class="c-kw">LIMIT</span> <span class="c-str">10</span>;</pre></div>
+      `
+    }
+  };
+
+  const defaultNote = {
+    toc: ['Introduction', 'Key Syntax', 'Examples', 'Best Practices', 'Summary'],
+    content: `
+      <h4>Introduction</h4>
+      <p>This topic is part of the DecodeLabs free notes library. Each note covers core concepts, syntax rules, practical examples, and best practices — the same structure throughout.</p>
+      <h4>How Notes Are Structured</h4>
+      <ul>
+        <li><strong>Concept</strong> — what it is and why it matters</li>
+        <li><strong>Syntax</strong> — exact code format with highlights</li>
+        <li><strong>Example</strong> — real, runnable code samples</li>
+        <li><strong>Use Case</strong> — when and where to apply it</li>
+        <li><strong>Gotchas</strong> — common mistakes to avoid</li>
+      </ul>
+      <div class="code-block"><pre><span class="c-comment">// Example placeholder</span>
+<span class="c-kw">const</span> <span class="c-var">notes</span> = <span class="c-fn">DecodeLabs</span>.<span class="c-fn">get</span>(<span class="c-str">"this topic"</span>);
+<span class="c-fn">console</span>.<span class="c-fn">log</span>(<span class="c-var">notes</span>.<span class="c-var">quality</span>); <span class="c-comment">// "excellent"</span></pre></div>
+      <h4>Best Practices</h4>
+      <ul>
+        <li>Read through the whole note once before coding</li>
+        <li>Type the examples yourself — don't copy-paste</li>
+        <li>Experiment with modifications to deepen understanding</li>
+      </ul>
+    `
+  };
+
+  function openNote(title, lang, level) {
+    const data = noteData[title] || defaultNote;
+    document.getElementById('modalTitle').textContent = title;
+    document.getElementById('modalLangBadge').textContent = lang;
+    document.getElementById('modalLangBadge').className = 'modal-lang-badge note-lang ' + lang.toLowerCase().replace(/[^a-z]/g,'').substring(0,4);
+    document.getElementById('modalLevelBadge').textContent = level.charAt(0).toUpperCase() + level.slice(1);
+    document.getElementById('modalLevelBadge').className = 'modal-level-badge note-level ' + level;
+    document.getElementById('modalToc').innerHTML = '<strong>Contents:</strong> ' + data.toc.map(t => `<span>${t}</span>`).join('');
+    document.getElementById('modalContent').innerHTML = data.content;
+    document.getElementById('modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('modal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function handleOverlayClick(e) {
+    if (e.target.id === 'modal') closeModal();
+  }
+  </script>
+</body>
+</html>
